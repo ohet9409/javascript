@@ -74,12 +74,25 @@
 // console.log('!: ', !a1 )
 
 // 삼항 연산자(ternary operator)
-const a = 1 < 2
+// const a = 1 < 2
 
-if (a) {
-    console.log('참')
+// if (a) {
+//     console.log('참')
+// } else {
+//     console.log('거짓')
+// }
+// // true이면 첫번째, false이면 두번째 값 출력
+// console.log(a ? '참' : '거짓')
+
+import random from './getRandom'
+// 조건문
+const a = random()
+
+// 중간에 맞는 조건이 있으면 나머지 조건은 무시한다
+if(a === 0) {
+    console.log('a is 0')
+} else if (a === 2) {
+    console.log('a is 2')
 } else {
-    console.log('거짓')
+    console.log('rest....')
 }
-// true이면 첫번째, false이면 두번째 값 출력
-console.log(a ? '참' : '거짓')
