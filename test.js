@@ -2,4 +2,4 @@
 import getType from './getType'
 
 // 확인
-console.log(getType('test'))
+// console.log(getType('test'))
