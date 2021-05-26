@@ -195,32 +195,51 @@
 // ===============================================
 // 화살표 함수
 // () => {} vs function () {}
-const double = function (x) {
-    return x * 2
+// const double = function (x) {
+//     return x * 2
+// }
+
+// console.log('double: ', double(7))
+
+// const doubleArrow = (x) => {
+//     return x * 2
+// }
+// console.log('doubleArrow: ', doubleArrow(5))
+
+// // 화살표 함수는 축약형으로 표현이 가능하다
+// const doubleArrow2 = x => x * 8
+
+// console.log('doubleArrow: ', doubleArrow2(5))
+
+// // 매개변수가 2개 이상일 경우 () 입력
+// const doubleArrow3 = (x, y) => x * 8 + y
+
+// console.log('doubleArrow: ', doubleArrow3(5,2))
+
+// // 객체 데이터를 반환하는 방법 대괄호{}를 소괄호()로 감싸줘야 한다.
+// const doubleArrow4 = (x, y) => ({
+//     name: 'oh',
+//     X: x,
+//     Y: y
+// })
+
+// console.log('doubleArrow: ', doubleArrow4(5,2))
+// ====================================================
+
+// 즉시실행함수
+// IIFE, Immediately-Invoked Function Expression
+const a = 7
+// 일반 함수 예제
+function double() {
+    console.log(a * 2)
 }
+double();
 
-console.log('double: ', double(7))
+//즉시실행함수 예제(앞에 함수에 반드시 끝났다는 표시에 ; 을 입력해주어야 한다)
+(function () {
+    console.log("즉시 실행", a + 3)
+})();
 
-const doubleArrow = (x) => {
-    return x * 2
-}
-console.log('doubleArrow: ', doubleArrow(5))
-
-// 화살표 함수는 축약형으로 표현이 가능하다
-const doubleArrow2 = x => x * 8
-
-console.log('doubleArrow: ', doubleArrow2(5))
-
-// 매개변수가 2개 이상일 경우 () 입력
-const doubleArrow3 = (x, y) => x * 8 + y
-
-console.log('doubleArrow: ', doubleArrow3(5,2))
-
-// 객체 데이터를 반환하는 방법
-const doubleArrow4 = (x, y) => ({
-    name: 'oh',
-    X: x,
-    Y: y
-})
-
-console.log('doubleArrow: ', doubleArrow4(5,2))
+(function () {
+    console.log("즉시 실행", a + 3 *8)
+}());
