@@ -185,10 +185,42 @@
 // ------------------------------------------
 
 // 매개변수로 지정해야할 값이 너무 많을 경우 arguments 객체 사용하여 일괄적으로 사용할수있다
-function sum() {
+// function sum() {
 
-    console.log(arguments)
+//     console.log(arguments)
     
-    return arguments[0] + arguments[1] + arguments[2] + arguments[3]
+//     return arguments[0] + arguments[1] + arguments[2] + arguments[3]
+// }
+// console.log(sum(1, 5, 9,4))
+// ===============================================
+// 화살표 함수
+// () => {} vs function () {}
+const double = function (x) {
+    return x * 2
 }
-console.log(sum(1, 5, 9,4))
+
+console.log('double: ', double(7))
+
+const doubleArrow = (x) => {
+    return x * 2
+}
+console.log('doubleArrow: ', doubleArrow(5))
+
+// 화살표 함수는 축약형으로 표현이 가능하다
+const doubleArrow2 = x => x * 8
+
+console.log('doubleArrow: ', doubleArrow2(5))
+
+// 매개변수가 2개 이상일 경우 () 입력
+const doubleArrow3 = (x, y) => x * 8 + y
+
+console.log('doubleArrow: ', doubleArrow3(5,2))
+
+// 객체 데이터를 반환하는 방법
+const doubleArrow4 = (x, y) => ({
+    name: 'oh',
+    X: x,
+    Y: y
+})
+
+console.log('doubleArrow: ', doubleArrow4(5,2))
