@@ -248,12 +248,48 @@
 
 // 호이스팅
 // 함수 선언부가 유효범위 최상단으로 끌어 올려지는 현상
-const a = 7
+// const a = 7
 
-// 호이스팅 현상 발생
-double()
+// // 호이스팅 현상 발생
+// double()
 
-function double() {
-    console.log(a * 2)
-}
+// function double() {
+//     console.log(a * 2)
+// }
 
+// =====================================
+
+// 타이머 함수
+// setTimeout(함수, 시간): 일정 시간 후 함수 실행
+// setInterval(함수, 시간): 시간 간격마다 함수 실행
+// clearTimeout(): 설정된 Timeout 함수를 종료
+// clearInterval(): 설정된 Interval 함수를 종료
+
+// 3초뒤 실행하는 함수
+const timer = setTimeout(function () {
+    console.log('안녕!!')
+}, 3000)
+
+// 화살표 함수
+setTimeout( () => {
+    console.log('화살표 함수 안녕!!')
+}, 3000)
+
+// h1태그를 클릭하면 timeout이 종료되도록 선언
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+    // 종료할 타이머함수 변수를 입력
+    clearTimeout(timer)
+})
+
+// 3초마다 함수 호출
+const interval = setInterval(function () {
+    console.log('안녕!!')
+}, 3000)
+
+// h1태그를 클릭하면 Interval이 종료되도록 선언
+const h1El2 = document.querySelector('h1')
+h1El2.addEventListener('click', function() {
+    // 종료할 타이머함수 변수를 입력
+    clearInterval(interval)
+})
