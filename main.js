@@ -228,18 +228,32 @@
 
 // 즉시실행함수
 // IIFE, Immediately-Invoked Function Expression
+// const a = 7
+// // 일반 함수 예제
+// function double() {
+//     console.log(a * 2)
+// }
+// double();
+
+// //즉시실행함수 예제(앞에 함수에 반드시 끝났다는 표시에 ; 을 입력해주어야 한다)
+// (function () {
+//     console.log("즉시 실행", a + 3)
+// })();
+
+// (function () {
+//     console.log("즉시 실행", a + 3 *8)
+// }());
+
+// =================================================
+
+// 호이스팅
+// 함수 선언부가 유효범위 최상단으로 끌어 올려지는 현상
 const a = 7
-// 일반 함수 예제
+
+// 호이스팅 현상 발생
+double()
+
 function double() {
     console.log(a * 2)
 }
-double();
 
-//즉시실행함수 예제(앞에 함수에 반드시 끝났다는 표시에 ; 을 입력해주어야 한다)
-(function () {
-    console.log("즉시 실행", a + 3)
-})();
-
-(function () {
-    console.log("즉시 실행", a + 3 *8)
-}());
