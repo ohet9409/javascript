@@ -145,14 +145,39 @@
 // 번수 유효범위(Variable Scope)
 // var, let, const
 // let, const: 블록레벨의 유효범위를 가진다
-function scope() {
-    if (true) {
-        const a = 123;
-        console.log(a)
-        var b = 222;
-    }
-    console.log(b)
-    // console.log(a) //에러발생
+// var: 함수레벨의 유효범위를 가진다
+// function scope() {
+//     if (true) {
+//         const a = 123;
+//         console.log(a)
+//         var b = 222;
+//     }
+//     console.log(b)
+//     // console.log(a) //에러발생
+// }
+// // console.log(b) //에러발생
+// scope()
+
+// 형 변환(Type conversion)
+
+// Truthy (참 같은 값)
+// true, {}, [], 1, 2, 'false', -11, '3.44'.....
+
+// Falsy (거짓 같은 값)
+// false, '', null, undefined, 0 -0, NaN
+
+const a = 1;
+const b = '1';
+// 일치 연산자 false
+console.log(a === b)
+// 동등 연산자(형변환이 일어난다) true
+// 안쓰는 것을 권장한다.
+console.log(a == b)
+
+if (true) {
+    console.log(123)
 }
-// console.log(b) //에러발생
-scope()
+
+if (null) {
+    console.log(999)
+}
