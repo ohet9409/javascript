@@ -84,34 +84,60 @@
 // // true이면 첫번째, false이면 두번째 값 출력
 // console.log(a ? '참' : '거짓')
 
-import random from './getRandom'
-// 조건문
-const a = random()
+// import random from './getRandom'
+// // 조건문
+// const a = random()
 
-// 중간에 맞는 조건이 있으면 나머지 조건은 무시한다
-if(a === 0) {
-    console.log('a is 0')
-} else if (a === 2) {
-    console.log('a is 2')
-} else {
-    console.log('rest....')
-}
+// // 중간에 맞는 조건이 있으면 나머지 조건은 무시한다
+// if(a === 0) {
+//     console.log('a is 0')
+// } else if (a === 2) {
+//     console.log('a is 2')
+// } else {
+//     console.log('rest....')
+// }
 
-// 조건이 어떠한 값으로 딱 떨어질때 더 적합하다
-switch (a) {
-    case 0:
-        console.log('a is 0')
-        break;
+// // 조건이 어떠한 값으로 딱 떨어질때 더 적합하다
+// switch (a) {
+//     case 0:
+//         console.log('a is 0')
+//         break;
 
-    case 2:
-        console.log('a is 2')
-        break;
+//     case 2:
+//         console.log('a is 2')
+//         break;
 
-    case 3:
-        console.log('a is 3')
-         break;
+//     case 3:
+//         console.log('a is 3')
+//          break;
 
-    default:
-        console.log('rest...')
+//     default:
+//         console.log('rest...')
         
+// }
+
+
+// 반복문(For statement)
+// for (시작조건; 종료조건; 변화조건) {}
+// ul태그 요소를 가져온다.
+const ulEl = document.querySelector('ul')
+console.log(ulEl)
+// i++: 반복 한 번 돌고 1씩 증가
+for (let i = 0; i < 3; i++) {
+    // console.log(i)
+    // li 태그 생성
+    const li = document.createElement('li')
+    // 보간 처리
+    // li 태그 내용 입력
+    li.textContent = `list-${i + 1}`
+    
+    //짝수를 눌렀을때 이벤트 작동
+    if ((i+1) % 2 === 0){
+        // li태그 클릭 할 때마다 li태그 내용 콘솔에 출력
+        li.addEventListener('click', function () {
+        console.log(li.textContent)
+        })
+    }
+    // ul 태그 밑에 li태그 붙이기
+    ulEl.appendChild(li)
 }
