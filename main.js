@@ -266,30 +266,51 @@
 // clearInterval(): 설정된 Interval 함수를 종료
 
 // 3초뒤 실행하는 함수
-const timer = setTimeout(function () {
-    console.log('안녕!!')
-}, 3000)
+// const timer = setTimeout(function () {
+//     console.log('안녕!!')
+// }, 3000)
 
-// 화살표 함수
-setTimeout( () => {
-    console.log('화살표 함수 안녕!!')
-}, 3000)
+// // 화살표 함수
+// setTimeout( () => {
+//     console.log('화살표 함수 안녕!!')
+// }, 3000)
 
-// h1태그를 클릭하면 timeout이 종료되도록 선언
-const h1El = document.querySelector('h1')
-h1El.addEventListener('click', () => {
-    // 종료할 타이머함수 변수를 입력
-    clearTimeout(timer)
+// // h1태그를 클릭하면 timeout이 종료되도록 선언
+// const h1El = document.querySelector('h1')
+// h1El.addEventListener('click', () => {
+//     // 종료할 타이머함수 변수를 입력
+//     clearTimeout(timer)
+// })
+
+// // 3초마다 함수 호출
+// const interval = setInterval(function () {
+//     console.log('안녕!!')
+// }, 3000)
+
+// // h1태그를 클릭하면 Interval이 종료되도록 선언
+// const h1El2 = document.querySelector('h1')
+// h1El2.addEventListener('click', function() {
+//     // 종료할 타이머함수 변수를 입력
+//     clearInterval(interval)
+// })
+
+// ====================================================
+
+// 콜백(callback)
+// 함수의 인수로 사용되는 함수
+
+// setTimeout(함수, 시간)
+function timeout(cb1) {
+    setTimeout(() => {
+        console.log('안녕하세요');
+        // 원하는 출력 위치에 콜백함수 입력
+        cb1();
+    }, 4000);
+}
+// timeout()
+// 콜백함수 설정
+timeout(() => {
+    console.log('콜백함수')
 })
 
-// 3초마다 함수 호출
-const interval = setInterval(function () {
-    console.log('안녕!!')
-}, 3000)
-
-// h1태그를 클릭하면 Interval이 종료되도록 선언
-const h1El2 = document.querySelector('h1')
-h1El2.addEventListener('click', function() {
-    // 종료할 타이머함수 변수를 입력
-    clearInterval(interval)
-})
+console.log('먼저 출력')
