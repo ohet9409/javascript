@@ -157,7 +157,7 @@
 // }
 // // console.log(b) //에러발생
 // scope()
-
+// ------------------------------
 // 형 변환(Type conversion)
 
 // Truthy (참 같은 값)
@@ -166,18 +166,29 @@
 // Falsy (거짓 같은 값)
 // false, '', null, undefined, 0 -0, NaN
 
-const a = 1;
-const b = '1';
-// 일치 연산자 false
-console.log(a === b)
-// 동등 연산자(형변환이 일어난다) true
-// 안쓰는 것을 권장한다.
-console.log(a == b)
+// const a = 1;
+// const b = '1';
+// // 일치 연산자 false
+// console.log(a === b)
+// // 동등 연산자(형변환이 일어난다) true
+// // 안쓰는 것을 권장한다.
+// console.log(a == b)
 
-if (true) {
-    console.log(123)
-}
+// if (true) {
+//     console.log(123)
+// }
 
-if (null) {
-    console.log(999)
+// if (null) {
+//     console.log(999)
+// }
+
+// ------------------------------------------
+
+// 매개변수로 지정해야할 값이 너무 많을 경우 arguments 객체 사용하여 일괄적으로 사용할수있다
+function sum() {
+
+    console.log(arguments)
+    
+    return arguments[0] + arguments[1] + arguments[2] + arguments[3]
 }
+console.log(sum(1, 5, 9,4))
