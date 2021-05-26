@@ -96,3 +96,22 @@ if(a === 0) {
 } else {
     console.log('rest....')
 }
+
+// 조건이 어떠한 값으로 딱 떨어질때 더 적합하다
+switch (a) {
+    case 0:
+        console.log('a is 0')
+        break;
+
+    case 2:
+        console.log('a is 2')
+        break;
+
+    case 3:
+        console.log('a is 3')
+         break;
+
+    default:
+        console.log('rest...')
+        
+}
