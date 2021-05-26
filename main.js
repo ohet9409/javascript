@@ -120,24 +120,39 @@
 // 반복문(For statement)
 // for (시작조건; 종료조건; 변화조건) {}
 // ul태그 요소를 가져온다.
-const ulEl = document.querySelector('ul')
-console.log(ulEl)
-// i++: 반복 한 번 돌고 1씩 증가
-for (let i = 0; i < 3; i++) {
-    // console.log(i)
-    // li 태그 생성
-    const li = document.createElement('li')
-    // 보간 처리
-    // li 태그 내용 입력
-    li.textContent = `list-${i + 1}`
-    
-    //짝수를 눌렀을때 이벤트 작동
-    if ((i+1) % 2 === 0){
-        // li태그 클릭 할 때마다 li태그 내용 콘솔에 출력
-        li.addEventListener('click', function () {
-        console.log(li.textContent)
-        })
+// const ulEl = document.querySelector('ul')
+// console.log(ulEl)
+// // i++: 반복 한 번 돌고 1씩 증가
+// for (let i = 0; i < 3; i++) {
+//     // console.log(i)
+//     // li 태그 생성
+//     const li = document.createElement('li')
+//     // 보간 처리
+//     // li 태그 내용 입력
+//     li.textContent = `list-${i + 1}`
+
+//     //짝수를 눌렀을때 이벤트 작동
+//     if ((i+1) % 2 === 0){
+//         // li태그 클릭 할 때마다 li태그 내용 콘솔에 출력
+//         li.addEventListener('click', function () {
+//         console.log(li.textContent)
+//         })
+//     }
+//     // ul 태그 밑에 li태그 붙이기
+//     ulEl.appendChild(li)
+// }
+
+// 번수 유효범위(Variable Scope)
+// var, let, const
+// let, const: 블록레벨의 유효범위를 가진다
+function scope() {
+    if (true) {
+        const a = 123;
+        console.log(a)
+        var b = 222;
     }
-    // ul 태그 밑에 li태그 붙이기
-    ulEl.appendChild(li)
+    console.log(b)
+    // console.log(a) //에러발생
 }
+// console.log(b) //에러발생
+scope()
