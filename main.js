@@ -300,17 +300,72 @@
 // 함수의 인수로 사용되는 함수
 
 // setTimeout(함수, 시간)
-function timeout(cb1) {
-    setTimeout(() => {
-        console.log('안녕하세요');
-        // 원하는 출력 위치에 콜백함수 입력
-        cb1();
-    }, 4000);
-}
-// timeout()
-// 콜백함수 설정
-timeout(() => {
-    console.log('콜백함수')
-})
+// function timeout(cb) {
+//     setTimeout(() => {
+//         console.log('안녕하세요');
+//         // 원하는 출력 위치에 콜백함수 입력
+//         cb();
+//     }, 4000);
+// }
+// // timeout()
+// // 콜백함수 설정
+// timeout(() => {
+//     console.log('콜백함수')
+// })
 
-console.log('먼저 출력')
+// console.log('먼저 출력')
+
+// ========================================
+
+const happy = {
+    first_name: 'Happy',
+    last_name: 'oh',
+    getFullName: function () {
+        return `${this.first_name} ${this.last_name}`
+    }
+}
+console.log(happy)
+console.log(happy.getFullName())
+
+const amy = {
+    first_name: 'Amy',
+    last_name: 'Clarke',
+    getFullName: function() {
+        return `${this.first_name} ${this.last_name}`
+    }
+}
+
+console.log(amy)
+console.log(amy.getFullName())
+
+const neo = {
+    first_name: 'Neo',
+    last_name: 'Smith',
+    getFullName: function() {
+        return `${this.first_name} ${this.last_name}`
+    }
+}
+
+console.log(neo)
+console.log(neo.getFullName())
+
+// 클래스 예제
+// 파스칼 케이스를 이용하여 첫문자를 대문자로 입력
+function User(first, last) {
+    this.first_name = first
+    this.last_name = last
+}
+// prototyper을 통해서 getFullName이라는 함수를 참조할 수 있도록 설정
+User.prototype.getFullName = function () {
+    return `${this.first_name} ${this.last_name}`
+} 
+//  생성자 함수
+//  받는 변수들은 인스턴스라고 불린다.
+const happy1 = new User('happy', 'oh')
+const amy1 = new User('Amy', 'Clarke')
+const neo1 = new User('Neo', 'Smith')
+
+console.log(happy1)
+console.log(happy1.getFullName())
+console.log(amy1)
+console.log(neo1)
