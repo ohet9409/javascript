@@ -376,9 +376,80 @@
 // 일반(Normal) 함수는 호출 위치에 따라 this 정의
 // 화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의
 
+// const happy = {
+//     name: 'Happy',
+//     normal: function() {
+//         console.log(this.name)
+//     },
+//     arrow: () => {
+//         console.log(this.name)
+//     }
+// }
+
+// happy.normal()
+// happy.arrow()
+
+// const amy = {
+//     name: 'Amy',
+//     //happy의 함수 자체가 할당되는 구조 (소괄호()를 입력안했기 때문에 함수를 호출하는 것이 아니다
+//     normal: happy.normal,
+//     arrow: happy.arrow
+// }
+
+// amy.normal()
+// amy.arrow()
+
+// // 생성자 함수 이용
+// function User (name) {
+//     this.name = name
+// }
+// User.prototype.normal3 = function(){
+//     console.log(this.name)
+// }
+// User.prototype.arrow2 = () => {
+//     console.log(this.name)
+// }
+// const happy2 = new User('Happy')
+// happy2.normal3()
+// happy2.arrow2()
+
+// // 타이머 함수 이용
+// const timer = {
+//     name: 'Happy',
+//     timeout: function() {
+//         // 2초뒤 함수 호출
+//         // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
+//         // setTimeout(function() {
+//         //     console.log(this.name)
+//         // }, 2000)
+//         // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
+//         setTimeout(() => {
+//             console.log(this.name)
+//         }, 2000)
+//     }
+// }
+// timer.timeout()
+
+// const timer2 = {
+//     name: 'Happy',
+//     timeout: () => {
+//         // 2초뒤 함수 호출
+//         // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
+//         // setTimeout(function() {
+//         //     console.log(this.name)
+//         // }, 2000)
+//         // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
+//         setTimeout(() => {
+//             console.log(this.name)
+//         }, 2000)
+//     }
+// }
+// timer2.timeout()
+
+// ES6 Classes
 const happy = {
-    name: 'Happy',
-    normal: function() {
+    name: 'happy',
+    normal(){
         console.log(this.name)
     },
     arrow: () => {
@@ -389,59 +460,27 @@ const happy = {
 happy.normal()
 happy.arrow()
 
-const amy = {
-    name: 'Amy',
-    //happy의 함수 자체가 할당되는 구조 (소괄호()를 입력안했기 때문에 함수를 호출하는 것이 아니다
-    normal: happy.normal,
-    arrow: happy.arrow
-}
+// function User(first, last) {
+//     this.firstName = first
+//     this.lastName = last
+// }
+// User.prototype.getFullName = function () {
+//     return `${this.firstName} ${this.lastName}`
+// }
 
-amy.normal()
-amy.arrow()
-
-// 생성자 함수 이용
-function User (name) {
-    this.name = name
-}
-User.prototype.normal3 = function(){
-    console.log(this.name)
-}
-User.prototype.arrow2 = () => {
-    console.log(this.name)
-}
-const happy2 = new User('Happy')
-happy2.normal3()
-happy2.arrow2()
-
-// 타이머 함수 이용
-const timer = {
-    name: 'Happy',
-    timeout: function() {
-        // 2초뒤 함수 호출
-        // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
-        // setTimeout(function() {
-        //     console.log(this.name)
-        // }, 2000)
-        // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
-        setTimeout(() => {
-            console.log(this.name)
-        }, 2000)
+class User {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`
     }
 }
-timer.timeout()
+const happy2 = new User('Happy', 'Oh')
+const amy = new User('amy', 'Clack')
+const neo = new User('Neo', 'Smith')
 
-const timer2 = {
-    name: 'Happy',
-    timeout: () => {
-        // 2초뒤 함수 호출
-        // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
-        // setTimeout(function() {
-        //     console.log(this.name)
-        // }, 2000)
-        // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
-        setTimeout(() => {
-            console.log(this.name)
-        }, 2000)
-    }
-}
-timer2.timeout()
+console.log(happy2)
+console.log(amy.getFullName())
+console.log(neo.getFullName())
