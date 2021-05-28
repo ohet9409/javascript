@@ -317,55 +317,131 @@
 
 // ========================================
 
+// const happy = {
+//     first_name: 'Happy',
+//     last_name: 'oh',
+//     getFullName: function () {
+//         return `${this.first_name} ${this.last_name}`
+//     }
+// }
+// console.log(happy)
+// console.log(happy.getFullName())
+
+// const amy = {
+//     first_name: 'Amy',
+//     last_name: 'Clarke',
+//     getFullName: function() {
+//         return `${this.first_name} ${this.last_name}`
+//     }
+// }
+
+// console.log(amy)
+// console.log(amy.getFullName())
+
+// const neo = {
+//     first_name: 'Neo',
+//     last_name: 'Smith',
+//     getFullName: function() {
+//         return `${this.first_name} ${this.last_name}`
+//     }
+// }
+
+// console.log(neo)
+// console.log(neo.getFullName())
+
+// // 클래스 예제
+// // 파스칼 케이스를 이용하여 첫문자를 대문자로 입력
+// function User(first, last) {
+//     this.first_name = first
+//     this.last_name = last
+// }
+// // prototyper을 통해서 getFullName이라는 함수를 참조할 수 있도록 설정
+// User.prototype.getFullName = function () {
+//     return `${this.first_name} ${this.last_name}`
+// } 
+// //  생성자 함수
+// //  받는 변수들은 인스턴스라고 불린다.
+// const happy1 = new User('happy', 'oh')
+// const amy1 = new User('Amy', 'Clarke')
+// const neo1 = new User('Neo', 'Smith')
+
+// console.log(happy1)
+// console.log(happy1.getFullName())
+// console.log(amy1)
+// console.log(neo1)
+
+// ======================================
+
+// this
+// 일반(Normal) 함수는 호출 위치에 따라 this 정의
+// 화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의
+
 const happy = {
-    first_name: 'Happy',
-    last_name: 'oh',
-    getFullName: function () {
-        return `${this.first_name} ${this.last_name}`
+    name: 'Happy',
+    normal: function() {
+        console.log(this.name)
+    },
+    arrow: () => {
+        console.log(this.name)
     }
 }
-console.log(happy)
-console.log(happy.getFullName())
+
+happy.normal()
+happy.arrow()
 
 const amy = {
-    first_name: 'Amy',
-    last_name: 'Clarke',
-    getFullName: function() {
-        return `${this.first_name} ${this.last_name}`
+    name: 'Amy',
+    //happy의 함수 자체가 할당되는 구조 (소괄호()를 입력안했기 때문에 함수를 호출하는 것이 아니다
+    normal: happy.normal,
+    arrow: happy.arrow
+}
+
+amy.normal()
+amy.arrow()
+
+// 생성자 함수 이용
+function User (name) {
+    this.name = name
+}
+User.prototype.normal3 = function(){
+    console.log(this.name)
+}
+User.prototype.arrow2 = () => {
+    console.log(this.name)
+}
+const happy2 = new User('Happy')
+happy2.normal3()
+happy2.arrow2()
+
+// 타이머 함수 이용
+const timer = {
+    name: 'Happy',
+    timeout: function() {
+        // 2초뒤 함수 호출
+        // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
+        // setTimeout(function() {
+        //     console.log(this.name)
+        // }, 2000)
+        // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
+        setTimeout(() => {
+            console.log(this.name)
+        }, 2000)
     }
 }
+timer.timeout()
 
-console.log(amy)
-console.log(amy.getFullName())
-
-const neo = {
-    first_name: 'Neo',
-    last_name: 'Smith',
-    getFullName: function() {
-        return `${this.first_name} ${this.last_name}`
+const timer2 = {
+    name: 'Happy',
+    timeout: () => {
+        // 2초뒤 함수 호출
+        // 일반함수는 setTimeout내부에 어딘가에서 호출되기 때문에 undefined 가 호출된다
+        // setTimeout(function() {
+        //     console.log(this.name)
+        // }, 2000)
+        // 화살표함수는 선언된 함수 범위에서 this가 정의 되기 때문에 정상 출력
+        setTimeout(() => {
+            console.log(this.name)
+        }, 2000)
     }
 }
-
-console.log(neo)
-console.log(neo.getFullName())
-
-// 클래스 예제
-// 파스칼 케이스를 이용하여 첫문자를 대문자로 입력
-function User(first, last) {
-    this.first_name = first
-    this.last_name = last
-}
-// prototyper을 통해서 getFullName이라는 함수를 참조할 수 있도록 설정
-User.prototype.getFullName = function () {
-    return `${this.first_name} ${this.last_name}`
-} 
-//  생성자 함수
-//  받는 변수들은 인스턴스라고 불린다.
-const happy1 = new User('happy', 'oh')
-const amy1 = new User('Amy', 'Clarke')
-const neo1 = new User('Neo', 'Smith')
-
-console.log(happy1)
-console.log(happy1.getFullName())
-console.log(amy1)
-console.log(neo1)
+timer2.timeout()
