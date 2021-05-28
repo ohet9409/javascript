@@ -485,36 +485,67 @@
 // console.log(amy.getFullName())
 // console.log(neo.getFullName())
 
-class Vehicle {
-    constructor(name, wheel){
-        this.name = name
-        this.wheel = wheel
-    }
-}
-const myVehicle = new Vehicle('운송수단', 2)
-console.log(myVehicle)
+// class Vehicle {
+//     constructor(name, wheel){
+//         this.name = name
+//         this.wheel = wheel
+//     }
+// }
+// const myVehicle = new Vehicle('운송수단', 2)
+// console.log(myVehicle)
 
-//  확장(상속)
-class Bicycle extends Vehicle {
-    constructor(name, wheel){
-        // Vehicle 클래스를 의미
-        super(name, wheel)
-    }
-}
-const myBicycle = new Bicycle('자전거', 2)
-const daughtersBicycle = new Bicycle('세발자전거', 3)
-console.log(myBicycle)
-console.log(daughtersBicycle)
+// //  확장(상속)
+// class Bicycle extends Vehicle {
+//     constructor(name, wheel){
+//         // Vehicle 클래스를 의미
+//         super(name, wheel)
+//     }
+// }
+// const myBicycle = new Bicycle('자전거', 2)
+// const daughtersBicycle = new Bicycle('세발자전거', 3)
+// console.log(myBicycle)
+// console.log(daughtersBicycle)
 
-class Car extends Vehicle {
-    constructor(name, wheel, license) {
-        // Vehicle 클래스를 의미
-        super(name, wheel)
-        // 새로운 로직 추가
-        this.license = license
-    }
-}
-const myCar = new Car('자동차', 4, '2종')
-const daughtersCar = new Car('작은자동차', 4, '2종')
-console.log(myCar)
-console.log(daughtersCar)
+// class Car extends Vehicle {
+//     constructor(name, wheel, license) {
+//         // Vehicle 클래스를 의미
+//         super(name, wheel)
+//         // 새로운 로직 추가
+//         this.license = license
+//     }
+// }
+// const myCar = new Car('자동차', 4, '2종')
+// const daughtersCar = new Car('작은자동차', 4, '2종')
+// console.log(myCar)
+// console.log(daughtersCar)
+// =====================================================
+// JS 데이터 - 문자
+// 문자위치값을 가져오는 함수 0부터 시작, 찾지못하면 -1 반환
+const result = 'Hello World!'.indexOf('World')
+console.log(result)
+
+const str = '0123'
+// 글자 길이를 출력
+console.log(str.length)
+console.log('12 33'.length)
+
+const str2 = 'Hello world!'
+// boolean 데이터로 확인하는 방법
+console.log(str2.indexOf('aaa') !== -1)
+console.log(str2.indexOf('wor'))
+// 문자를 자르는 함수(시작번호, 끝번호) / 0 1 2
+console.log(str2.slice(0,3))
+console.log(str2.slice(6,11))
+// 특정 문자를 원하는 문자로 바꾸는 함수
+console.log(str2.replace('world', 'happy'))
+console.log(str2.replace(' world!', ''))
+
+const str3 = 'happy@naver.com'
+// 정규표현식을 이용해서 특정문자 배열위치를 찾아서 추출
+console.log(str3.match(/.+(?=@)/)[0])
+// 정규표현식 배열 확인
+console.log(str3.match(/.+(?=@)/))
+
+const str4 = '    Hello    world   '
+// 특정문자의 맨 앞, 맨 뒤 공백을 제거
+console.log(str4.trim())
