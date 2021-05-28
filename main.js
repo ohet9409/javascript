@@ -447,40 +447,74 @@
 // timer2.timeout()
 
 // ES6 Classes
-const happy = {
-    name: 'happy',
-    normal(){
-        console.log(this.name)
-    },
-    arrow: () => {
-        console.log(this.name)
-    }
-}
-
-happy.normal()
-happy.arrow()
-
-// function User(first, last) {
-//     this.firstName = first
-//     this.lastName = last
-// }
-// User.prototype.getFullName = function () {
-//     return `${this.firstName} ${this.lastName}`
+// const happy = {
+//     name: 'happy',
+//     normal(){
+//         console.log(this.name)
+//     },
+//     arrow: () => {
+//         console.log(this.name)
+//     }
 // }
 
-class User {
-    constructor(first, last) {
-        this.firstName = first
-        this.lastName = last
-    }
-    getFullName(){
-        return `${this.firstName} ${this.lastName}`
+// happy.normal()
+// happy.arrow()
+
+// // function User(first, last) {
+// //     this.firstName = first
+// //     this.lastName = last
+// // }
+// // User.prototype.getFullName = function () {
+// //     return `${this.firstName} ${this.lastName}`
+// // }
+
+// class User {
+//     constructor(first, last) {
+//         this.firstName = first
+//         this.lastName = last
+//     }
+//     getFullName(){
+//         return `${this.firstName} ${this.lastName}`
+//     }
+// }
+// const happy2 = new User('Happy', 'Oh')
+// const amy = new User('amy', 'Clack')
+// const neo = new User('Neo', 'Smith')
+
+// console.log(happy2)
+// console.log(amy.getFullName())
+// console.log(neo.getFullName())
+
+class Vehicle {
+    constructor(name, wheel){
+        this.name = name
+        this.wheel = wheel
     }
 }
-const happy2 = new User('Happy', 'Oh')
-const amy = new User('amy', 'Clack')
-const neo = new User('Neo', 'Smith')
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
 
-console.log(happy2)
-console.log(amy.getFullName())
-console.log(neo.getFullName())
+//  확장(상속)
+class Bicycle extends Vehicle {
+    constructor(name, wheel){
+        // Vehicle 클래스를 의미
+        super(name, wheel)
+    }
+}
+const myBicycle = new Bicycle('자전거', 2)
+const daughtersBicycle = new Bicycle('세발자전거', 3)
+console.log(myBicycle)
+console.log(daughtersBicycle)
+
+class Car extends Vehicle {
+    constructor(name, wheel, license) {
+        // Vehicle 클래스를 의미
+        super(name, wheel)
+        // 새로운 로직 추가
+        this.license = license
+    }
+}
+const myCar = new Car('자동차', 4, '2종')
+const daughtersCar = new Car('작은자동차', 4, '2종')
+console.log(myCar)
+console.log(daughtersCar)
