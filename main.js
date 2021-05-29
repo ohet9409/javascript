@@ -639,13 +639,13 @@
 
 // .map()
 // 배열 데이터의 갯수 만큼 반복 실행하여 반환된 데이터를 새로운 배열에 담는다
-const number = [1, 2, 3, 4]
-const fruits = ['Apple', 'Banana', 'Cherry']//  . 
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']//  . 
 
-const a = fruits.forEach(function (fruit, index) {
-  console.log(`${fruit} - ${index}`)
-})
-console.log(a)
+// const a = fruits.forEach(function (fruit, index) {
+//   console.log(`${fruit} - ${index}`)
+// })
+// console.log(a)
 
 // // 콜백함수 실행
 // const b = fruits.map(function (fruit, index) {
@@ -664,13 +664,118 @@ console.log(a)
 
 // 화살표 함수로 변환
 // 콜백함수 실행
-const b = fruits.map((fruit, index) => {
-  return `${fruit} - ${index}`
-})
-console.log(b)
+// const b = fruits.map((fruit, index) => {
+//   return `${fruit} - ${index}`
+// })
+// console.log(b)
 
-const c = fruits.map((fruit, index) => ({
-  id: index,
-    name: fruit
-}))
-console.log(c)
+// const c = fruits.map((fruit, index) => ({
+//   id: index,
+//     name: fruit
+// }))
+// console.log(c)
+
+// ==============================================
+
+//  .filter()
+//  지정한 배열안의 데이터를 필터링하여 조건에 맞는 데이터를 반환한다
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// const a = numbers.map(number => {
+//   // true, false 반환
+//   return number < 3
+// })
+// console.log(a)
+
+// const b = numbers.filter(number => {
+//   // 3보다 작은 데이터만 반환하여 새로운 배열에 입력
+//   return number < 3
+// })
+// console.log(b)
+
+// 화살표 함수 최적화 변환
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// const a = numbers.map(number => number < 3 )
+// console.log(a)
+
+// const b = numbers.filter(number => number < 3 )
+// console.log(b)
+
+// .find() .findIndex()
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+
+// const a = fruits.find(fruit => {
+//   // 대문자 B로 시작하는 데이터를 반환
+//   // 찾은 후 종료됨
+//   return /^B/.test(fruit)
+// })
+// console.log(a)
+
+// // 찾아진 데이터의 위치값을 반환
+// const b = fruits.findIndex(fruit => {
+//   // 대문자 B로 시작하는 데이터를 반환
+//   // 찾은 후 종료됨
+//   return /^B/.test(fruit)
+// })
+// console.log(b)
+
+// // 간소화 표현
+// const a = fruits.find(fruit => /^B/.test(fruit))
+// console.log(a)
+
+// // 찾아진 데이터의 위치값을 반환
+// const b = fruits.findIndex(fruit => /^B/.test(fruit))
+// console.log(b)
+
+// .includes()
+// 배열데이터에 해당 데이터가 포함되어있는지 boolean 데이터로 반환
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+
+// const a = numbers.includes(3)
+// console.log(a)
+
+// const b = fruits.includes('happy')
+// console.log(b)
+
+// push() .unshift()
+// 원본 수정됨  주의!
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+
+// 가장 마지막에 데이터를 추가
+// numbers.push(5)
+// console.log(numbers)
+
+// 가장 첫번째에 데이터를 추가
+// numbers.unshift(0)
+// console.log(numbers)
+
+// .reverse()
+// 원본 수정됨 주의!
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+
+// // 순서를 거꾸로 변환
+// numbers.reverse()
+// fruits.reverse()
+
+// console.log(numbers)
+// console.log(fruits)
+
+// .splice()
+// 원본 수정됨 주의!
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+
+// 인덱스 번호 2번에 데이터 1가지를 제거
+numbers.splice(2, 1)
+console.log(numbers)
+
+// 2번째 데이터의 999를 추가(그 뒤는 밀림 처리)
+numbers.splice(2, 0, 999)
+console.log(numbers)
