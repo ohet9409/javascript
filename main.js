@@ -521,31 +521,72 @@
 // =====================================================
 // JS 데이터 - 문자
 // 문자위치값을 가져오는 함수 0부터 시작, 찾지못하면 -1 반환
-const result = 'Hello World!'.indexOf('World')
-console.log(result)
+// const result = 'Hello World!'.indexOf('World')
+// console.log(result)
 
-const str = '0123'
-// 글자 길이를 출력
-console.log(str.length)
-console.log('12 33'.length)
+// const str = '0123'
+// // 글자 길이를 출력
+// console.log(str.length)
+// console.log('12 33'.length)
 
-const str2 = 'Hello world!'
-// boolean 데이터로 확인하는 방법
-console.log(str2.indexOf('aaa') !== -1)
-console.log(str2.indexOf('wor'))
-// 문자를 자르는 함수(시작번호, 끝번호) / 0 1 2
-console.log(str2.slice(0,3))
-console.log(str2.slice(6,11))
-// 특정 문자를 원하는 문자로 바꾸는 함수
-console.log(str2.replace('world', 'happy'))
-console.log(str2.replace(' world!', ''))
+// const str2 = 'Hello world!'
+// // boolean 데이터로 확인하는 방법
+// console.log(str2.indexOf('aaa') !== -1)
+// console.log(str2.indexOf('wor'))
+// // 문자를 자르는 함수(시작번호, 끝번호) / 0 1 2
+// console.log(str2.slice(0,3))
+// console.log(str2.slice(6,11))
+// // 특정 문자를 원하는 문자로 바꾸는 함수
+// console.log(str2.replace('world', 'happy'))
+// console.log(str2.replace(' world!', ''))
 
-const str3 = 'happy@naver.com'
-// 정규표현식을 이용해서 특정문자 배열위치를 찾아서 추출
-console.log(str3.match(/.+(?=@)/)[0])
-// 정규표현식 배열 확인
-console.log(str3.match(/.+(?=@)/))
+// const str3 = 'happy@naver.com'
+// // 정규표현식을 이용해서 특정문자 배열위치를 찾아서 추출
+// console.log(str3.match(/.+(?=@)/)[0])
+// // 정규표현식 배열 확인
+// console.log(str3.match(/.+(?=@)/))
 
-const str4 = '    Hello    world   '
-// 특정문자의 맨 앞, 맨 뒤 공백을 제거
-console.log(str4.trim())
+// const str4 = '    Hello    world   '
+// // 특정문자의 맨 앞, 맨 뒤 공백을 제거
+// console.log(str4.trim())
+
+// ============================================
+// JS 데이터 - 숫자(수학)
+// const pi = 3.141592
+// console.log(pi)
+
+// // 소수점 2자리만 보여줌
+// const str = pi.toFixed(2)
+// console.log(str)
+// console.log(typeof str)
+
+// // 정수형으로 변환하여 정수부분만 반환
+// const integer = parseInt(str)
+// // 실수형으로 변환하여 소수점까지 반환
+// const float = parseFloat(str)
+// console.log(integer)
+// console.log(float)
+// console.log(typeof integer, typeof float)
+
+// 수학 메소드 예제
+// 특정한 숫자의 절대값 출력
+console.log('abs: ', Math.abs(-12))
+
+// 인수로 들어온 숫자들 중에 가장 작은 값 출력
+console.log('min: ', Math.min(2, 8))
+
+// 인수로 들어온 숫자들 중에 가장 큰 값 출력
+console.log('max: ', Math.max(2, 8))
+
+// 인수로 들어온 숫자 데이터를 올림 처리(기본적으로 정수 단위로 올림 처리)
+console.log('ceil: ', Math.ceil(3.14))
+
+// 인수로 들어온 숫자 데이터를 내림 처리(기본적으로 정수 단위로 내림 처리)
+console.log('floor: ', Math.floor(3.14))
+
+// 인수로 들어온 숫자 데이터를 반올림 처리(기본적으로 정수 단위로 반올림 처리)
+console.log('round: ', Math.round(3.14))
+console.log('round: ', Math.round(3.5))
+
+//  랜덤값 반환
+console.log('random: ', Math.random())
