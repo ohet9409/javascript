@@ -570,23 +570,107 @@
 
 // 수학 메소드 예제
 // 특정한 숫자의 절대값 출력
-console.log('abs: ', Math.abs(-12))
+// console.log('abs: ', Math.abs(-12))
 
-// 인수로 들어온 숫자들 중에 가장 작은 값 출력
-console.log('min: ', Math.min(2, 8))
+// // 인수로 들어온 숫자들 중에 가장 작은 값 출력
+// console.log('min: ', Math.min(2, 8))
 
-// 인수로 들어온 숫자들 중에 가장 큰 값 출력
-console.log('max: ', Math.max(2, 8))
+// // 인수로 들어온 숫자들 중에 가장 큰 값 출력
+// console.log('max: ', Math.max(2, 8))
 
-// 인수로 들어온 숫자 데이터를 올림 처리(기본적으로 정수 단위로 올림 처리)
-console.log('ceil: ', Math.ceil(3.14))
+// // 인수로 들어온 숫자 데이터를 올림 처리(기본적으로 정수 단위로 올림 처리)
+// console.log('ceil: ', Math.ceil(3.14))
 
-// 인수로 들어온 숫자 데이터를 내림 처리(기본적으로 정수 단위로 내림 처리)
-console.log('floor: ', Math.floor(3.14))
+// // 인수로 들어온 숫자 데이터를 내림 처리(기본적으로 정수 단위로 내림 처리)
+// console.log('floor: ', Math.floor(3.14))
 
-// 인수로 들어온 숫자 데이터를 반올림 처리(기본적으로 정수 단위로 반올림 처리)
-console.log('round: ', Math.round(3.14))
-console.log('round: ', Math.round(3.5))
+// // 인수로 들어온 숫자 데이터를 반올림 처리(기본적으로 정수 단위로 반올림 처리)
+// console.log('round: ', Math.round(3.14))
+// console.log('round: ', Math.round(3.5))
 
-//  랜덤값 반환
-console.log('random: ', Math.random())
+// //  랜덤값 반환
+// console.log('random: ', Math.random())
+
+// ===================================================
+// JS 데이터 - 배열 api
+// 배열 데이터 생성
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// console.log(number)
+// // 첫번째 데이터 출력
+// console.log(number[0])
+
+// console.log(fruits)
+// // 마지막 데이터 출력
+// console.log(fruits[2])
+
+// .length 속성
+// 배열의 갯수를 반환
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// console.log(number.length)
+// console.log(fruits.length)
+// console.log([1, 2].length)
+// console.log([].length)
+
+// .concat()
+// 배열 데이터를 병합 하여 반환(원본의 데이터는 수정되지 않는다)
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// console.log(number.concat(fruits))
+// console.log(number)
+// console.log(fruits)
+
+// .forEach()
+// 배열 데이터의 갯수 만큼 반복
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// // 콜백함수 실행
+// // element: 배열의 데이터
+// // index: 현재 배열 데이터의 위치
+// // array: 배열 데이터
+// fruits.forEach(function (element, index, array) {
+//   console.log(element, index, array)
+// })
+
+// .map()
+// 배열 데이터의 갯수 만큼 반복 실행하여 반환된 데이터를 새로운 배열에 담는다
+const number = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']//  . 
+
+const a = fruits.forEach(function (fruit, index) {
+  console.log(`${fruit} - ${index}`)
+})
+console.log(a)
+
+// // 콜백함수 실행
+// const b = fruits.map(function (fruit, index) {
+//   return `${fruit} - ${index}`
+// })
+// console.log(b)
+
+// const c = fruits.map(function (fruit, index) {
+//   // 배열데이터에 객체 데이터 생성 예
+//   return {
+//     id: index,
+//     name: fruit
+//   }
+// })
+// console.log(c)
+
+// 화살표 함수로 변환
+// 콜백함수 실행
+const b = fruits.map((fruit, index) => {
+  return `${fruit} - ${index}`
+})
+console.log(b)
+
+const c = fruits.map((fruit, index) => ({
+  id: index,
+    name: fruit
+}))
+console.log(c)
