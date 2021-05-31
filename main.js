@@ -769,13 +769,64 @@
 
 // .splice()
 // 원본 수정됨 주의!
-const numbers = [1, 2, 3, 4]
-const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
+// const numbers = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Boat']
 
-// 인덱스 번호 2번에 데이터 1가지를 제거
-numbers.splice(2, 1)
-console.log(numbers)
+// // 인덱스 번호 2번에 데이터 1가지를 제거
+// numbers.splice(2, 1)
+// console.log(numbers)
 
-// 2번째 데이터의 999를 추가(그 뒤는 밀림 처리)
-numbers.splice(2, 0, 999)
-console.log(numbers)
+// // 2번째 데이터의 999를 추가(그 뒤는 밀림 처리)
+// numbers.splice(2, 0, 999)
+// console.log(numbers)
+
+// ======================================
+// Object 예제
+// const userAge = {
+//   // Key: value
+//   name: 'happy',
+//   age: 48
+// }
+
+// const userEmail = {
+//   name: 'happy',
+//   email: 'happy@naver.com'
+// }
+// // 원본을 유지하는 방법
+// const target = Object.assign({}, userAge, userEmail)
+// console.log(target)
+// console.log(userAge)
+// // 같은 메모리를 바라보기 때문에 true 반환
+// console.log(target === userAge)
+
+
+// // 정적메소드: 복사 기능
+// const target2 = Object.assign(userAge, userEmail)
+// console.log(target2)
+// console.log(userAge)
+// // 같은 메모리를 바라보기 때문에 true 반환
+// console.log(target2 === userAge)
+
+
+// const a = { k: 123}
+// const b = { k: 123}
+// // 메모리 주소가 다르기 때문에 false 반환
+// console.log(a === b)
+
+const user = {
+  name: 'happy',
+  age: 90,
+  email: 'happy@navver.com'
+}
+
+const keys = Object.keys(user)
+console.log(keys)
+// ['name', 'age', 'email']
+
+// 인덱싱 방식
+console.log(user['email'])
+
+// key라는 매개변수이름은 변경할 수 있음
+// key에 해당하는 값들만 추출해서 배열데이터로 만들수있음
+const values = keys.map(key => user[key])
+console.log(values)
