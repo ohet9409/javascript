@@ -813,20 +813,51 @@
 // // 메모리 주소가 다르기 때문에 false 반환
 // console.log(a === b)
 
+// const user = {
+//   name: 'happy',
+//   age: 90,
+//   email: 'happy@navver.com'
+// }
+
+// const keys = Object.keys(user)
+// console.log(keys)
+// // ['name', 'age', 'email']
+
+// // 인덱싱 방식
+// console.log(user['email'])
+
+// // key라는 매개변수이름은 변경할 수 있음
+// // key에 해당하는 값들만 추출해서 배열데이터로 만들수있음
+// const values = keys.map(key => user[key])
+// console.log(values)
+
+// ======================================
+
+// 구조 분해 할당 (Destructuring assignment)
+// 비구조화 할당
 const user = {
   name: 'happy',
-  age: 90,
-  email: 'happy@navver.com'
+  age: 43,
+  email: 'happy@naver.com'
 }
 
-const keys = Object.keys(user)
-console.log(keys)
-// ['name', 'age', 'email']
+// 배열의 원하는 데이터만 뽑아서 선언 할 수있다.
+// const {name, age, email, address } = user
 
-// 인덱싱 방식
-console.log(user['email'])
+// 기본값 설정가능(기존값이 있을경우 재지정 불가) address='korea'
+// 데이터 명칭을 사용자가 바꿔서 사용할 수 있음 name: happy
+const {name: happy, age, email, address='korea' } = user
 
-// key라는 매개변수이름은 변경할 수 있음
-// key에 해당하는 값들만 추출해서 배열데이터로 만들수있음
-const values = keys.map(key => user[key])
-console.log(values)
+console.log(`사용자의 이름은 ${name} 입니다.`)
+console.log(`${name}의 나이는 ${age}입니다`)
+console.log(`${happy}의 이메일 주소는 ${user.email}입니다`)
+console.log(address)
+
+
+
+const fruits = ['Apple', 'Banana', 'Cherry']
+// const [a, b, c, d] = fruits
+// console.log(a, b, c, d)
+// 원하는 데이터만 추출하는 방법
+const [, b] = fruits
+console.log(b)
