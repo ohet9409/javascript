@@ -846,18 +846,65 @@ const user = {
 
 // 기본값 설정가능(기존값이 있을경우 재지정 불가) address='korea'
 // 데이터 명칭을 사용자가 바꿔서 사용할 수 있음 name: happy
-const {name: happy, age, email, address='korea' } = user
+// const {name: happy, age, email, address='korea' } = user
 
-console.log(`사용자의 이름은 ${name} 입니다.`)
-console.log(`${name}의 나이는 ${age}입니다`)
-console.log(`${happy}의 이메일 주소는 ${user.email}입니다`)
-console.log(address)
+// console.log(`사용자의 이름은 ${name} 입니다.`)
+// console.log(`${name}의 나이는 ${age}입니다`)
+// console.log(`${happy}의 이메일 주소는 ${user.email}입니다`)
+// console.log(address)
 
 
 
-const fruits = ['Apple', 'Banana', 'Cherry']
-// const [a, b, c, d] = fruits
-// console.log(a, b, c, d)
-// 원하는 데이터만 추출하는 방법
-const [, b] = fruits
-console.log(b)
+// const fruits = ['Apple', 'Banana', 'Cherry']
+// // const [a, b, c, d] = fruits
+// // console.log(a, b, c, d)
+// // 원하는 데이터만 추출하는 방법
+// const [, b] = fruits
+// console.log(b)
+
+// =============================================
+
+// 전개 연산자 (spread)
+const fruits = ['Apple', 'Banana', 'Cherry','Orange']
+// 배열 데이터 출력됨
+console.log(fruits)
+// 문자 데이터 형태로 출력됨
+console.log(...fruits)
+// console.log('Apple', 'Banana', 'Cherry')
+
+// 배열데이터를 문자형으로 추출하여 객체데이터로 값을 넣어주는 함수 예제
+function toObject(a, b, c) {
+  return {
+    a: a,
+    b: b,
+    c: c
+  }
+}
+
+console.log(toObject(...fruits))
+// 전개 연산자와 같은 결과를 내기 위해서는 하나씩 지정해주어야 한다.
+console.log(toObject(fruits[0],fruits[1], fruits[2]))
+
+// 매개변수에 전개 연산자 사용(나머지 매개변수)
+// function toObject2(a, b, ...c) {
+//   return {
+//     a: a,
+//     b: b,
+//     c: c
+//   }
+// }
+
+// 축약형
+// key값과 value값이 같기 때문에 아래와 같이 사용할 수 있음
+// function toObject2(a, b, ...c) {
+//   return {
+//     a,
+//     b,
+//     c
+//   }
+// }
+
+// 화살표 함수로 변환
+const toObject2 = (a, b, ...c) => ({a, b, c})
+
+console.log(toObject2(...fruits))
