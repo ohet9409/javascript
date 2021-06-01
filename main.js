@@ -835,11 +835,11 @@
 
 // 구조 분해 할당 (Destructuring assignment)
 // 비구조화 할당
-const user = {
-  name: 'happy',
-  age: 43,
-  email: 'happy@naver.com'
-}
+// const user = {
+//   name: 'happy',
+//   age: 43,
+//   email: 'happy@naver.com'
+// }
 
 // 배열의 원하는 데이터만 뽑아서 선언 할 수있다.
 // const {name, age, email, address } = user
@@ -865,25 +865,25 @@ const user = {
 // =============================================
 
 // 전개 연산자 (spread)
-const fruits = ['Apple', 'Banana', 'Cherry','Orange']
-// 배열 데이터 출력됨
-console.log(fruits)
-// 문자 데이터 형태로 출력됨
-console.log(...fruits)
+// const fruits = ['Apple', 'Banana', 'Cherry','Orange']
+// // 배열 데이터 출력됨
+// console.log(fruits)
+// // 문자 데이터 형태로 출력됨
+// console.log(...fruits)
 // console.log('Apple', 'Banana', 'Cherry')
 
 // 배열데이터를 문자형으로 추출하여 객체데이터로 값을 넣어주는 함수 예제
-function toObject(a, b, c) {
-  return {
-    a: a,
-    b: b,
-    c: c
-  }
-}
+// function toObject(a, b, c) {
+//   return {
+//     a: a,
+//     b: b,
+//     c: c
+//   }
+// }
 
-console.log(toObject(...fruits))
-// 전개 연산자와 같은 결과를 내기 위해서는 하나씩 지정해주어야 한다.
-console.log(toObject(fruits[0],fruits[1], fruits[2]))
+// console.log(toObject(...fruits))
+// // 전개 연산자와 같은 결과를 내기 위해서는 하나씩 지정해주어야 한다.
+// console.log(toObject(fruits[0],fruits[1], fruits[2]))
 
 // 매개변수에 전개 연산자 사용(나머지 매개변수)
 // function toObject2(a, b, ...c) {
@@ -905,6 +905,37 @@ console.log(toObject(fruits[0],fruits[1], fruits[2]))
 // }
 
 // 화살표 함수로 변환
-const toObject2 = (a, b, ...c) => ({a, b, c})
+// const toObject2 = (a, b, ...c) => ({a, b, c})
 
-console.log(toObject2(...fruits))
+// console.log(toObject2(...fruits))
+
+// ====================================================
+
+// 데이터 불변성(Immutablility)
+// 원시 데이터: String, Number, Boolean, undefined, null
+// 참조형 데이터: Object, Array, Function
+// let a = 1;
+// let b = 4
+// console.log(a, b, a === b)
+
+// b = a 
+// // 같은 메모리 주소를 바라보기 때문에 true
+// console.log(a, b, a === b)
+
+// a = 7
+// console.log(a, b, a === b)
+
+// let c = 1
+// // 기존의 1이라는 메모리를 바라보기 때문에 true
+// console.log(b, c, b === c)
+
+let a = { k: 1}
+let b = { k: 1}
+console.log(a, b, a === b)
+a.k = 7
+b = a
+console.log(a, b, a === b)
+a.k = 2
+console.log(a, b, a === b)
+let c = b
+console.log(a, b, c, a === c)
