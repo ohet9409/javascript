@@ -944,52 +944,67 @@
 
 // ===========================================================
 // lodash 사용
-import _ from 'lodash'
-// 얕은 복사(Shallow copy), 깊은 복사 (Deep copy)
-const user = {
-  name: 'happy',
-  age: 33,
-  email: ['happy@naver.com'] 
-}
-const copyUser = user
-console.log(copyUser === user)
+// import _ from 'lodash'
+// // 얕은 복사(Shallow copy), 깊은 복사 (Deep copy)
+// const user = {
+//   name: 'happy',
+//   age: 33,
+//   email: ['happy@naver.com'] 
+// }
+// const copyUser = user
+// console.log(copyUser === user)
 
-// 바라보고 있는 쪽의 데이터가 변하면 참조하고있는 데이터 또한 변한다.
-user.age = 22
-console.log('user', user)
-console.log('copyUser', copyUser)
+// // 바라보고 있는 쪽의 데이터가 변하면 참조하고있는 데이터 또한 변한다.
+// user.age = 22
+// console.log('user', user)
+// console.log('copyUser', copyUser)
 
-console.log('----------')
-console.log('----------')
+// console.log('----------')
+// console.log('----------')
 
 //  얕은 복사
 //  {}: 대상 객체, user: 참조 객체 (새로운 메모리주소가 할당 된다)
 // const copyUser2 = Object.assign({}, user)
 //  전개 연산자를 이용해서 사용 가능
-const copyUser2 = {...user}
-console.log(copyUser2 === user)
-// 기존의 데이터가 변해도 참조하고 있는 데이터는 변하지 않는다.
-user.age = 99
-console.log('user', user)
-console.log('copyUser2', copyUser2)
+// const copyUser2 = {...user}
+// console.log(copyUser2 === user)
+// // 기존의 데이터가 변해도 참조하고 있는 데이터는 변하지 않는다.
+// user.age = 99
+// console.log('user', user)
+// console.log('copyUser2', copyUser2)
 
-// email은 배열 형태이기 때문에 기존의 메모리를 그대로 바라보고 있다.
-user.email.push('hi@naver.com')
-console.log(user.email === copyUser2.email)
-console.log('user.email', user.email)
-console.log('copyUser2.email', copyUser2.email)
-console.log('----------')
-console.log('----------')
-// 깊은 복사
-const copyUser3 = _.cloneDeep(user)
-console.log(copyUser3 === user)
-// 기존의 데이터가 변해도 참조하고 있는 데이터는 변하지 않는다.
-user.age = 99
-console.log('user', user)
-console.log('copyUser3', copyUser3)
-user.email.push('hello@naver.com')
-console.log(user.email === copyUser2.email)
-console.log('user.email', user.email)
-// 참조데이터안의 참조데이터 또한 새로 메모리가 생성되어 함께 변하지 않는다.
-console.log('copyUser3.email', copyUser3.email)
+// // email은 배열 형태이기 때문에 기존의 메모리를 그대로 바라보고 있다.
+// user.email.push('hi@naver.com')
+// console.log(user.email === copyUser2.email)
+// console.log('user.email', user.email)
+// console.log('copyUser2.email', copyUser2.email)
+// console.log('----------')
+// console.log('----------')
+// // 깊은 복사
+// const copyUser3 = _.cloneDeep(user)
+// console.log(copyUser3 === user)
+// // 기존의 데이터가 변해도 참조하고 있는 데이터는 변하지 않는다.
+// user.age = 99
+// console.log('user', user)
+// console.log('copyUser3', copyUser3)
+// user.email.push('hello@naver.com')
+// console.log(user.email === copyUser2.email)
+// console.log('user.email', user.email)
+// // 참조데이터안의 참조데이터 또한 새로 메모리가 생성되어 함께 변하지 않는다.
+// console.log('copyUser3.email', copyUser3.email)
 
+// ================================================
+import _ from 'lodash'  // From 'node_modules' !
+import getType from './getType' // getType.js
+// import getRandom from './getRandom' // getRandom.js
+// import {random, user} from './getRandom'
+import * as R from './getRandom'
+
+
+console.log(_.camelCase('the hello world'))
+console.log(getType([1, 2, 3]))
+// console.log(getRandom(), getRandom())
+// console.log(random(), random())
+// console.log(user)
+console.log(R)
+console.log(R.random())
