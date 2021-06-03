@@ -1012,44 +1012,67 @@
 // =====================================
 // lodash 사용법
 //  선언
-import _ from 'lodash'
+// import _ from 'lodash'
 
-const userA = [
-  { userId: '1', name: 'happy'},
-  { userId: '2', name: 'neo'}
-]
-const userB = [
-  { userId: '1', name: 'happy1'},
-  { userId: '3', name: 'amy'}
-]
+// const userA = [
+//   { userId: '1', name: 'happy'},
+//   { userId: '2', name: 'neo'}
+// ]
+// const userB = [
+//   { userId: '1', name: 'happy1'},
+//   { userId: '3', name: 'amy'}
+// ]
 
-// userA에 userB 데이터를 합쳐서 userC에 저장
-const userC = userA.concat(userB)
-console.log('concat', userC)
+// // userA에 userB 데이터를 합쳐서 userC에 저장
+// const userC = userA.concat(userB)
+// console.log('concat', userC)
 
-// userId의 중복 값을 제거 (뒤에 데이터를 제거 한다.)
-console.log('uniqBy', _.uniqBy(userC, 'userId'))
+// // userId의 중복 값을 제거 (뒤에 데이터를 제거 한다.)
+// console.log('uniqBy', _.uniqBy(userC, 'userId'))
 
-// userId의 중복 없이 userA, userB 데이터를 합쳐서 userD에 저장
-const userD = _.unionBy(userA, userB, 'userId')
-console.log('unionBy', userD)
+// // userId의 중복 없이 userA, userB 데이터를 합쳐서 userD에 저장
+// const userD = _.unionBy(userA, userB, 'userId')
+// console.log('unionBy', userD)
 
-const users = [
-  { userId: '1', name: 'happy'},
-  { userId: '2', name: 'neo'},
-  { userId: '3', name: 'evan'},
-  { userId: '4', name: 'lea'},
-  { userId: '5', name: 'yaa'}
-]
+// const users = [
+//   { userId: '1', name: 'happy'},
+//   { userId: '2', name: 'neo'},
+//   { userId: '3', name: 'evan'},
+//   { userId: '4', name: 'lea'},
+//   { userId: '5', name: 'yaa'}
+// ]
 
-// users라는 배열 데이터에서 name값이 evan인 데이터를 찾는다.
-const foundUser = _.find(users, {name: 'evan'})
-console.log(foundUser)
+// // users라는 배열 데이터에서 name값이 evan인 데이터를 찾는다.
+// const foundUser = _.find(users, {name: 'evan'})
+// console.log(foundUser)
 
-// users라는 배열 데이터에서 name값이 evan인 index 번호를 찾는다. 0부터 시작
-const foundUserIndex = _.findIndex(users, {name: 'evan'})
-console.log(foundUserIndex)
+// // users라는 배열 데이터에서 name값이 evan인 index 번호를 찾는다. 0부터 시작
+// const foundUserIndex = _.findIndex(users, {name: 'evan'})
+// console.log(foundUserIndex)
 
-// users라는 배열 데이터에서 name 값이 happy인 데이터를 제거한다.
-_.remove(users, {name: 'happy'})
-console.log(users)
+// // users라는 배열 데이터에서 name 값이 happy인 데이터를 제거한다.
+// _.remove(users, {name: 'happy'})
+// console.log(users)
+
+// ========================================================
+// JSON 
+// 자바스크립트의 객체 표기법
+// json 파일 가져오기
+import myData from './myData.json'
+console.log(myData)
+const user = {
+  name: 'happy',
+  age: 89,
+  email: [
+    'ttt@naver.com',
+    'eee@naver.com'
+  ]
+}
+console.log('user', user)
+
+const str = JSON.stringify(user)
+console.log('str', str)
+console.log(typeof str)
+
+const obj = JSON.parse(str)
+console.log('obj', obj)
