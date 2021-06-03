@@ -994,17 +994,62 @@
 // console.log('copyUser3.email', copyUser3.email)
 
 // ================================================
-import _ from 'lodash'  // From 'node_modules' !
-import getType from './getType' // getType.js
-// import getRandom from './getRandom' // getRandom.js
-// import {random, user} from './getRandom'
-import * as R from './getRandom'
+// import _ from 'lodash'  // From 'node_modules' !
+// import getType from './getType' // getType.js
+// // import getRandom from './getRandom' // getRandom.js
+// // import {random, user} from './getRandom'
+// import * as R from './getRandom'
 
 
-console.log(_.camelCase('the hello world'))
-console.log(getType([1, 2, 3]))
-// console.log(getRandom(), getRandom())
-// console.log(random(), random())
-// console.log(user)
-console.log(R)
-console.log(R.random())
+// console.log(_.camelCase('the hello world'))
+// console.log(getType([1, 2, 3]))
+// // console.log(getRandom(), getRandom())
+// // console.log(random(), random())
+// // console.log(user)
+// console.log(R)
+// console.log(R.random())
+
+// =====================================
+// lodash 사용법
+//  선언
+import _ from 'lodash'
+
+const userA = [
+  { userId: '1', name: 'happy'},
+  { userId: '2', name: 'neo'}
+]
+const userB = [
+  { userId: '1', name: 'happy1'},
+  { userId: '3', name: 'amy'}
+]
+
+// userA에 userB 데이터를 합쳐서 userC에 저장
+const userC = userA.concat(userB)
+console.log('concat', userC)
+
+// userId의 중복 값을 제거 (뒤에 데이터를 제거 한다.)
+console.log('uniqBy', _.uniqBy(userC, 'userId'))
+
+// userId의 중복 없이 userA, userB 데이터를 합쳐서 userD에 저장
+const userD = _.unionBy(userA, userB, 'userId')
+console.log('unionBy', userD)
+
+const users = [
+  { userId: '1', name: 'happy'},
+  { userId: '2', name: 'neo'},
+  { userId: '3', name: 'evan'},
+  { userId: '4', name: 'lea'},
+  { userId: '5', name: 'yaa'}
+]
+
+// users라는 배열 데이터에서 name값이 evan인 데이터를 찾는다.
+const foundUser = _.find(users, {name: 'evan'})
+console.log(foundUser)
+
+// users라는 배열 데이터에서 name값이 evan인 index 번호를 찾는다. 0부터 시작
+const foundUserIndex = _.findIndex(users, {name: 'evan'})
+console.log(foundUserIndex)
+
+// users라는 배열 데이터에서 name 값이 happy인 데이터를 제거한다.
+_.remove(users, {name: 'happy'})
+console.log(users)
