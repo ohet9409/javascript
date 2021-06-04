@@ -1058,21 +1058,57 @@
 // JSON 
 // 자바스크립트의 객체 표기법
 // json 파일 가져오기
-import myData from './myData.json'
-console.log(myData)
+// import myData from './myData.json'
+// console.log(myData)
+
+// const user = {
+//   name: 'happy',
+//   age: 89,
+//   email: [
+//     'ttt@naver.com',
+//     'eee@naver.com'
+//   ]
+// }
+// console.log('user', user)
+
+// // json형식 (문자데이터)으로 변환
+// const str = JSON.stringify(user)
+// console.log('str', str)
+// console.log(typeof str)
+
+// // 자바스크립트에서 해석되는 객체로 저장
+// const obj = JSON.parse(str)
+// console.log('obj', obj)
+
+// =============================================
+// Storage
 const user = {
   name: 'happy',
-  age: 89,
+  age: 85,
   email: [
     'ttt@naver.com',
-    'eee@naver.com'
+    'nnn@naver.com'
   ]
 }
-console.log('user', user)
 
-const str = JSON.stringify(user)
-console.log('str', str)
-console.log(typeof str)
+// 저장소에 데이터 저장
+localStorage.setItem('user', user)
 
+// 문자 데이터로 저장
+localStorage.setItem('user2', JSON.stringify(user))
+
+// 로컬 저장소에서 데이터 가져오기
+console.log(localStorage.getItem('user2'))
+
+// 객체 데이터로 변환하여 콘솔에 출력
+console.log(JSON.parse(localStorage.getItem('user2')))
+
+// 로컬저장소에 데이터를 수정하는 방법
+const str = localStorage.getItem('user2')
 const obj = JSON.parse(str)
-console.log('obj', obj)
+obj.age = 22
+console.log(obj)
+localStorage.setItem('user2', JSON.stringify(obj))
+
+// 로컬저장소에 데이터를 제거
+localStorage.removeItem('user2')
