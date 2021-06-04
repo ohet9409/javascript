@@ -1082,33 +1082,54 @@
 
 // =============================================
 // Storage
-const user = {
-  name: 'happy',
-  age: 85,
-  email: [
-    'ttt@naver.com',
-    'nnn@naver.com'
-  ]
-}
+// const user = {
+//   name: 'happy',
+//   age: 85,
+//   email: [
+//     'ttt@naver.com',
+//     'nnn@naver.com'
+//   ]
+// }
 
 // 저장소에 데이터 저장
-localStorage.setItem('user', user)
+// localStorage.setItem('user', user)
 
-// 문자 데이터로 저장
-localStorage.setItem('user2', JSON.stringify(user))
+// // 문자 데이터로 저장
+// localStorage.setItem('user2', JSON.stringify(user))
 
-// 로컬 저장소에서 데이터 가져오기
-console.log(localStorage.getItem('user2'))
+// // 로컬 저장소에서 데이터 가져오기
+// console.log(localStorage.getItem('user2'))
 
-// 객체 데이터로 변환하여 콘솔에 출력
-console.log(JSON.parse(localStorage.getItem('user2')))
+// // 객체 데이터로 변환하여 콘솔에 출력
+// console.log(JSON.parse(localStorage.getItem('user2')))
 
-// 로컬저장소에 데이터를 수정하는 방법
-const str = localStorage.getItem('user2')
-const obj = JSON.parse(str)
-obj.age = 22
-console.log(obj)
-localStorage.setItem('user2', JSON.stringify(obj))
+// // 로컬저장소에 데이터를 수정하는 방법
+// const str = localStorage.getItem('user2')
+// const obj = JSON.parse(str)
+// obj.age = 22
+// console.log(obj)
+// localStorage.setItem('user2', JSON.stringify(obj))
 
-// 로컬저장소에 데이터를 제거
-localStorage.removeItem('user2')
+// // 로컬저장소에 데이터를 제거
+// localStorage.removeItem('user2')
+
+// ================================================
+
+// omdb api
+// axios 패키지 사용(HTTP 요청을 처리하기 위해)
+import axios from 'axios'
+function fetchMovies() {
+  // apikey= 발급받은 api key, s= 검색하고자 하는 영화 제목
+  axios
+    .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+    // url에 해당하는 정보를 처리하는 구문
+    .then((res) => {
+      console.log(res)
+      const h1El = document.querySelector('h1')
+      const imgEl = document.querySelector('img')
+      h1El.textContent = res.data.Search[0].Tilte
+      imgEl.src = res.data.Search[0].Poster
+    })
+}
+// 실행
+fetchMovies()
